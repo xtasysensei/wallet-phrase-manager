@@ -10,8 +10,8 @@ It is written to be cross-platform so it works on Windows, MacOS, Linux, FreeBSD
 ## Usage
 Open a shell, and run:
 ```bash
-git clone 
-cd secret-phrase-manager
+git clone git@github.com:xtasysensei/wallet-phrase-manager.git
+cd wallet-phrase-manager
 python3 main.py
 ```
 ## GUI

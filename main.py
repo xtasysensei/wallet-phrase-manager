@@ -1,6 +1,6 @@
 import sys
-
 from core.core import *
+from lib.colors import *
 
 
 def lines():

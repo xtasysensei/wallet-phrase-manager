@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "wallet-phrase-magager"
+version = "0.1.0"
+description = "A wallet seed phrase manager"
+authors = ["xtasysensei <maiwuyashem@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+cryptography = "^42.0.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

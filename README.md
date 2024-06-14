@@ -4,6 +4,7 @@ It aims to help users manage their wallet seed phrases. The Phrases are hashed a
 
 ## Requirements
 - python(version >=3)
+- [python poetry](https://python-poetry.org/)
 - Terminal emulator
 It is written to be cross-platform so it works on Windows, MacOS, Linux, FreeBSD and even a Potato.
 
@@ -12,7 +13,9 @@ Open a shell, and run:
 ```bash
 git clone git@github.com:xtasysensei/wallet-phrase-manager.git
 cd wallet-phrase-manager
-python3 main.py
+poetry install
+poetry shell
+poetry run python main.py
 ```
 ## GUI
 It is mainly a terminal based application but a gui is in development

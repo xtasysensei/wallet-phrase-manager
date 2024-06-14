@@ -1,4 +1,3 @@
-import sys
 from core.core import *
 from lib.colors import *
 
@@ -7,7 +6,7 @@ def lines():
     print("----------------------")
 
 
-def add_wallet():
+def add_wallet(hash_password):
     wallet_name = input("Which wallet do you want to save phrases for: ")
     wallet_init = WalletName(wallet_name)
     wallet_init.create_wallet()
@@ -22,7 +21,7 @@ def add_wallet():
         except ValueError:
             print("Invalid input. Please enter a number (12, 14, 24).")
 
-    hash_password = input("Enter passphrase that will be used to hash your wallet: ")
+    hash_password = hash_password
 
     init_wallet = InitializeWallet()
     init_wallet.initialize_wallet(phrase_amount, wallet_name, hash_password)
@@ -30,8 +29,9 @@ def add_wallet():
 
 def start():
     while True:
+        print("Welcome to PhraSer")
+        global_hash_password = input("Enter passphrase that will be used to hash your wallet: ")
         try:
-            print("Welcome to PhraSer")
             print("What do you want to do?")
             print(f"    [1] Add wallet")
             print(f"    [2] Remove wallet")
@@ -46,9 +46,9 @@ def start():
             print("Invalid input. Please enter a option (1, 2, 3, q).")
 
     if choice == "1":
-        add_wallet()
-    #elif choice == "2":
-    #elif choice == "3":
+        add_wallet(global_hash_password)
+    # elif choice == "2":
+    # elif choice == "3":
     elif choice == "q":
         lines()
         print("Exiting PhraSer...")

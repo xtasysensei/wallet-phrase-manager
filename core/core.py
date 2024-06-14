@@ -1,6 +1,6 @@
+
 from lib.colors import *
 from lib.jsonManage import *
-
 
 class WalletName:
     def __init__(self, wallet_name):
@@ -26,6 +26,20 @@ class InitializeWallet:
 
         phrase_dict = {self.wallet_name: {f'phrase{i}': phrase_array[i] for i in range(phrase_amount)}}
 
-        append_to_json('data/data.json', phrase_dict)
-        encrypt_json_file(self.hash_password, 'data/data.json')
+        manage_json = JsonManage()
+        while True:
+            confirm_hash_password = input("Confirm your hash password:")
+            if confirm_hash_password == self.hash_password:
+                break
+            else:
+                print("Hash password incorrect, try again")
+
+        is_encrypted = manage_json.is_file_encrypted('data/data.json')
+        if is_encrypted:
+            manage_json.decrypt_json_file(self.hash_password, 'data/data.json')
+            manage_json.append_to_json('data/data.json', phrase_dict)
+            manage_json.encrypt_json_file(self.hash_password, 'data/data.json')
+        else:
+            manage_json.append_to_json('data/data.json', phrase_dict)
+            manage_json.encrypt_json_file(self.hash_password, 'data/data.json')
         print(phrase_dict)

@@ -119,6 +119,17 @@ test = ["certifi", "pretend", "pytest (>=6.2.0)", "pytest-benchmark", "pytest-co
 test-randomorder = ["pytest-randomly"]
 
 [[package]]
+name = "getpass-asterisk"
+version = "1.0.1"
+description = "An alternative implementation for getpass that echoes masked password (such as asterisks)"
+optional = false
+python-versions = "*"
+files = [
+    {file = "getpass_asterisk-1.0.1-py3-none-any.whl", hash = "sha256:20d45cafda0066d761961e0919728526baf7bb5151fbf48a7d5ea4034127d857"},
+    {file = "getpass_asterisk-1.0.1.tar.gz", hash = "sha256:7cc357a924cf62fa4e15b73cb4e5e30685c9084e464ffdc3fd9000a2b54ea9e9"},
+]
+
+[[package]]
 name = "pycparser"
 version = "2.22"
 description = "C parser in Python"
@@ -132,4 +143,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "729ac78c0eea1145a443c9e1f4633fbbf0e8d118aaf552a6157e89c5d2d2af43"
+content-hash = "8e08323d2501551e7ebc489bffa88d6c9d7c0dddf145b51a398dbe1aa5997e18"

@@ -1,3 +1,5 @@
+import json
+
 from getpass_asterisk.getpass_asterisk import getpass_asterisk
 from lib.colors import *
 from lib.jsonManage import *
@@ -12,6 +14,9 @@ class WalletName:
 
 
 class InitializeWallet:
+    """
+        This class creates and add phrases to a wallet
+    """
     def initialize_wallet(self, phrase_amount, wallet_name, hash_password):
         self.phrase_amount = phrase_amount
         self.wallet_name = wallet_name
@@ -43,10 +48,12 @@ class InitializeWallet:
         else:
             manage_json.append_to_json('data/data.json', phrase_dict)
             manage_json.encrypt_json_file(self.hash_password, 'data/data.json')
-        print(phrase_dict)
 
 
 class RetrieveWallet:
+    """
+        This class retrieves phrases from a wallet
+    """
     def retrieve_wallet(self, hash_password, wallet_name):
         self.hash_password = hash_password
         self.wallet_name = wallet_name
@@ -67,4 +74,33 @@ class RetrieveWallet:
                 print(f"[{i}] Phrase{i}  => {value}")
         else:
             print(f"Wallet named '{self.wallet_name}' not found.")
+        manage_json.encrypt_json_file(self.hash_password, 'data/data.json')
+
+
+class DeleteWallet:
+    """
+        This class removes a wallet
+    """
+    def delete_wallet(self, hash_password, wallet_name):
+        self.hash_password = hash_password
+        self.wallet_name = wallet_name
+        while True:
+            confirm_hash_password = getpass_asterisk(f"=> {purple}Confirm your hash password:{end} ")
+            if confirm_hash_password == self.hash_password:
+                break
+            else:
+                print("Hash password incorrect, try again")
+        manage_json = JsonManage()
+        manage_json.decrypt_json_file(self.hash_password, "data/data.json")
+        with open("data/data.json", "r") as f:
+            data = json.load(f)
+        if self.wallet_name in data:
+            del data[self.wallet_name]
+            with open("data/data.json", "w") as f:
+                json.dump(data, f)
+            print(f"{red}Deleting{end} {blue}{self.wallet_name.upper()}{end}...")
+            print(f"{green}Successfully removed{end} {blue}{self.wallet_name.upper()}{end}...")
+        else:
+            print(f"Wallet named '{self.wallet_name}' not found.")
+
         manage_json.encrypt_json_file(self.hash_password, 'data/data.json')

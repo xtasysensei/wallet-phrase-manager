@@ -13,6 +13,12 @@ def retrieve_wallet(hash_password_param):
     wallet_get.retrieve_wallet(hash_password_param, wallet_name)
 
 
+def delete_wallet(hash_password_param):
+    wallet_name = input(f"=> {purple}Which wallet do you want to remove:{end} ")
+    remove_wallet = DeleteWallet()
+    remove_wallet.delete_wallet(hash_password_param, wallet_name)
+
+
 def add_wallet(hash_password_param):
     wallet_name = input(f"=> {purple}Which wallet do you want to save phrases for:{end} ")
     wallet_init = WalletName(wallet_name)
@@ -52,8 +58,8 @@ def start():
             print(f"{blue}|---------------MENU---------------|{end}")
             print(f"  What do you want to do?")
             print(f"{gray}    [1] {cyan}Add wallet{end}")
-            print(f"{gray}    [2] {cyan}Remove wallet{end}")
-            print(f"{gray}    [3] {cyan}Retrieve wallet{end}")
+            print(f"{gray}    [2] {cyan}Retrieve wallet{end}")
+            print(f"{gray}    [3] {cyan}Remove wallet{end}")
             print(f"{red}    [q] Exit{end}")
             lines()
             choice: str = input("option:> ")
@@ -66,9 +72,10 @@ def start():
 
     if choice == "1":
         add_wallet(global_hash_password)
-    # elif choice == "2":
-    elif choice == "3":
+    elif choice == "2":
         retrieve_wallet(global_hash_password)
+    elif choice == "3":
+        delete_wallet(global_hash_password)
     elif choice == "q":
         exit_message()
     else:

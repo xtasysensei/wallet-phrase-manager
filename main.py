@@ -5,7 +5,6 @@ from lib.colors import *
 def lines():
     print("|----------------------------------|")
 
-
 def retrieve_wallet(hash_password_param):
     wallet_name = input(f"=> {purple}Which wallet do you want to retrieve:{end} ")
     print(f"{green}Retrieving phrases for{end} {blue}{wallet_name.upper()}{end}...")
@@ -56,7 +55,7 @@ def start():
             f"=> {purple}Enter passphrase that will be used to encrypt/decrypt:{end} ")
         try:
             print(f"{blue}|---------------MENU---------------|{end}")
-            print(f"  What do you want to do?")
+            print("  What do you want to do?")
             print(f"{gray}    [1] {cyan}Add wallet{end}")
             print(f"{gray}    [2] {cyan}Retrieve wallet{end}")
             print(f"{gray}    [3] {cyan}Remove wallet{end}")

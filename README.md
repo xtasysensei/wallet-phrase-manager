@@ -4,7 +4,7 @@ It aims to help users manage their wallet seed phrases. The Phrases are hashed a
 
 ## Requirements
 - python(version >=3)
-- [python poetry](https://python-poetry.org/)
+- [python poetry](https://realpython.com/dependency-management-python-poetry/)
 - Terminal emulator
 It is written to be cross-platform so it works on Windows, MacOS, Linux, FreeBSD and even a Potato.
 
